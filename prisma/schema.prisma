@@ -28,3 +28,23 @@ model Post {
   author User @relation(fields:[authorId] , references:[id])
   authorId Int
 }
+
+
+model newUsers {
+  id Int @id @default(autoincrement())
+  username String @unique
+  firstName String?
+  lastName String?
+  password Int 
+}
+
+model Todos {
+  id Int @id @default(autoincrement())
+  content String
+  description String
+  isCompleteted Boolean @default(false)
+  createdAt DateTime
+  userId Int
+}
+
+//prisma creates auto generated clients for us like User for index.ts file
